@@ -1,0 +1,13 @@
+body {
+	background-color: #EEE;
+}
+
+#container {
+	background-color: white;
+}
+
+#header {
+	background-color: #66CCFF
+	color: white;
+	text-align: center;
+}

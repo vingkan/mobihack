@@ -3,18 +3,60 @@
 	<head>
 		<title>MobiHack</title>
 		<link rel="stylesheet" type="text/css" href="style/reset.css">
-		<link rel="stylesheet" type="text/css" href="style/main.css">
+		<link rel="stylesheet" type="text/css" href="style/main.css"
+		>
 		<!-- IMPORTED SCRIPTS -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 		<style>
-
-
 		</style>
 	</head>
 	<body>
 
-		Hello World.
+		<div id="container">
+			<div id="header">
+				<h1>Clarity</h1>
+			</div>
+
+			<div id="content">
+				<div id="nav">
+					<h3>Navigation</h3>
+					<ul>
+						<li>Home</li>
+						<li>About</li>
+				</div>
+
+				<div id="main">
+					<h3>Home Page</h3>
+
+					<p> Begin using the program by entering the generated Room key.</p>
+					<!-- input of type=text named ROOM_KEY for Step 1-->
+					<input type="text" id="ROOM_KEY" value="">
+					<!-- input of type button -> id=Join and onclock call setRoomKey() defined in application.js-->
+					<!-- <input type="button" id="Join" value="Join!" onclick="setRoomKey();"> -->
+					<button style="background: #dbcbcb;" onclick="setRoomKey();">Join Game</button>
+					<br>
+					<br>
+
+
+					<!-- Button called starts-->
+					<button style="background: #dbcbcb;" id = "Start" onclick="setListening(ROOM, true);">Start</button>
+
+	
+
+					<input type="button" id="Stop" value="Stop" onclick="setListening(ROOM,false);">
+					<input type="button" id="Results" value="Results" onclick="endSession();">
+				</div>	
+			</div>
+
+			<div id="footer">
+				Copyright &copy; 2015 ----
+			</div>
+
+
+
+
+
 		
 		<!-- STACK SCRIPTS -->
 		<!-- Remeber that you have to load the stack backwards -->
@@ -23,9 +65,7 @@
 		<script type="text/javascript" src="script/frontend.js"></script>
 
 		<script type="text/javascript">
-
 			console.log("LOADED MAIN");
-
 		</script>
 		
 	</body>
