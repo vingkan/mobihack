@@ -33,6 +33,7 @@ function notifyDevices(room) {
 	});
 }
 
+<<<<<<< HEAD
 function getResults(room) {
 	var results = new Firebase(url+"Rooms/"+room);
 	var valuePairs = [];
@@ -58,6 +59,32 @@ function getResults(room) {
 	});
 	console.log(valuePairs)
 	return valuePairs;
+=======
+var allResults;
+function getResults(room, callback) {
+	var ref = new Firebase("https://claritk.firebaseio.com/Rooms/" + room);
+	allResults = [];
+	ref.on("value", function(snapshot){
+		var data = snapshot.val();
+		console.log(data)
+		$.each(data, function(ip, device){
+			var resultArray = [];
+			$.each(device, function(key, result){
+				resultArray.push(result);
+			});
+			var deviceObject = {
+				key: ip,
+				results: resultArray
+			}
+			allResults.push(deviceObject);
+		});
+		if(callback){
+			console.log(allResults)
+			callback(allResults);
+		}
+	});
+
+>>>>>>> origin/master
 }
 
 function init(){
