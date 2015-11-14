@@ -32,7 +32,6 @@ function getDeviceIP() {
 	for (i=0; hostipInfo.length >= i; i++) {
 		ipAddress = hostipInfo[i].split(":");
 		if ( ipAddress[0] == "IP" ){
-			document.getElementById('userID').innerHTML = ipAddress[1];
 			return ipAddress[1];
 		}
 	}
@@ -41,7 +40,7 @@ function getDeviceIP() {
 }
 
 function joinRoom(roomKey){
-	var userIP = getDeviceIP();
+	var userIP = getDeviceIP().replace(/\./g,'-');
 	DEVICE_KEY = addDevice(roomKey, userIP);
 }
 
