@@ -9,7 +9,9 @@ var DEVICE_KEY;
 /*---> STEP ONE <-----------------------------*/
 /*--------------------------------------------*/
 
-function 
+function joinRoom(roomKey){
+	DEVICE_KEY = addDevice(roomKey);
+}
 
 var currentResult = null;
 
@@ -32,3 +34,13 @@ recognition.onresult = function(event){
 recognition.start();
 
 console.log('LOADED APPLICATION');
+
+/*--------------------------------------------*/
+/*---> SUBSTITUTES <--------------------------*/
+/*--------------------------------------------*/
+
+function addDevice(roomKey){
+	return 'device-key1';
+}
+
+console.log('LOADED SUBSTITUTES');
