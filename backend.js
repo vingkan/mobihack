@@ -66,7 +66,5 @@ function init(){
 }
 
 
-
-
-
+console.log('LOADED BACKEND');
 
