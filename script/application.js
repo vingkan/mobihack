@@ -5,6 +5,8 @@
 var ROOM_KEY;
 var DEVICE_KEY;
 
+var devices = [];
+
 var currentResult = null;
 var parsedData = {
 	transcript: "transcript",
@@ -12,6 +14,7 @@ var parsedData = {
 };
 
 var recognition = new webkitSpeechRecognition();
+
 recognition.onresult = function(event){
 	currentResult = event;
 	console.log("Returned Result:");
@@ -52,13 +55,20 @@ function parseResult(){
 	record();
 }
 
-
 function getResultTranscript(){
 	return currentResult.results[0][0]['transcript'];
 }
 
 function getResultConfidence(){
 	return currentResult.results[0][0]['confidence'];
+}
+
+/*--------------------------------------------*/
+/*---> STEP FOUR <----------------------------*/
+/*--------------------------------------------*/
+
+function resultToHTML(parsedResult){
+	return '<li>(' + parsedResult.confidence + '): ' + parsedResult.transcript + '</li>';
 }
 
 console.log('LOADED APPLICATION');
