@@ -95,16 +95,8 @@ function resultToHTML(parsedResult){
 	return '<li>(' + parsedResult.confidence + '): ' + parsedResult.transcript + '</li>';
 }
 
-function endRecording(){
-	getResults(ROOM_KEY, endSession);
-}
-
 function endSession(){
-<<<<<<< HEAD
 	devices = getResults(ROOM_KEY);
-=======
-	devices = allResults;
->>>>>>> origin/master
 	console.log(devices);
 	var size = devices.length;
 	for(var d = 0; d < size; d++){
@@ -127,7 +119,6 @@ console.log('LOADED APPLICATION');
 // 	console.log("Sent to Database:");
 // 	console.log(resultData);
 // }
-<<<<<<< HEAD
 
 // function printResults(device){
 // 	console.log("Printed Results:");
@@ -135,15 +126,6 @@ console.log('LOADED APPLICATION');
 // }
 
 
-=======
-
-// function printResults(device){
-// 	console.log("Printed Results:");
-// 	console.log(device);
-// }
-
-
->>>>>>> origin/master
 /*
 function getResults(roomKey){
 	return [
