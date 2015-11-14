@@ -13,19 +13,6 @@ var parsedData = {
 	confidence: 0.5
 };
 
-var recognition = new webkitSpeechRecognition();
-	recognition.continuous = true;
-
-recognition.onresult = function(event){
-	//recognition.stop();
-	currentResult = event;
-	console.log("Returned Result:");
-	console.log(currentResult);
-	console.log(getResultTranscript());
-	console.log(getResultConfidence());
-	parseResult();
-}
-
 /*--------------------------------------------*/
 /*---> STEP ONE <-----------------------------*/
 /*--------------------------------------------*/
@@ -47,6 +34,18 @@ function startListening(){
 /*--------------------------------------------*/
 
 function record(){
+	var recognition = new webkitSpeechRecognition();
+		recognition.continuous = true;
+
+	recognition.onresult = function(event){
+		currentResult = event;
+		console.log("Returned Result:");
+		console.log(currentResult);
+		console.log(getResultTranscript());
+		console.log(getResultConfidence());
+		parseResult();
+	}
+
 	recognition.start();
 }
 
@@ -54,7 +53,7 @@ function parseResult(){
 	parsedData.transcript = getResultTranscript();
 	parsedData.confidence = getResultConfidence();
 	pushResult(parsedData);
-	//record();
+	record();
 }
 
 function getResultTranscript(){
