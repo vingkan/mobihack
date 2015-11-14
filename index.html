@@ -3,55 +3,56 @@
 	<head>
 		<title>MobiHack</title>
 		<link rel="stylesheet" type="text/css" href="style/reset.css">
-		<link rel="stylesheet" type="text/css" href="style/main.css"
-		>
+		<link rel="stylesheet" type="text/css" href="style/main.css">
 		<!-- IMPORTED SCRIPTS -->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+		<link href='http://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple' rel='stylesheet' type='text/css'>
+
 		<style>
 		</style>
 	</head>
+
 	<body>
 
 		<div id="container">
 			<div id="header">
-				<h1>Clarity</h1>
+				<img src="style/clarity.png" alt="Clarity">
 			</div>
 
 			<div id="content">
+
 				<div id="nav">
 					<h3>Navigation</h3>
 					<ul>
 						<li>Home</li>
 						<li>About</li>
+					</ul>
 				</div>
 
 				<div id="main">
-					<h3>Home Page</h3>
 
 					<p>Begin using the program by entering the generated Room key.</p>
 					<!-- input of type=text named ROOM_KEY for Step 1-->
 					<input type="text" id="roomKeyInput" value="">
 					<!-- input of type button -> id=Join and onclock call setRoomKey() defined in application.js-->
 					<!-- <input type="button" id="Join" value="Join!" onclick="setRoomKey();"> -->
-					<button onclick="setRoomKey();">Join Game</button>
+					<button style="background: #dbcbcb;" onclick="setRoomKey();">Join Game</button>
 					<br>
 					<br>
-
 
 					<!-- Button called starts-->
 					<button style="background: #dbcbcb;" id="start" onclick="startListening(true);">Start</button>
-
-					<button id="stop" onclick="startListening(false);">Stop</button>
-
-					
-					<input type="button" id="Results" value="Results" onclick="endSession();">
+					<button style="background: #dbcbcb;" id="stop" onclick="startListening(false);">Stop</button>
+					<button style="background: #dbcbcb;" id="resuls" onclick="endSession();">Results</button>
 				</div>	
+
 			</div>
 
 			<div id="footer">
 				Copyright &copy; 2015 ----
 			</div>
+		</div>	
 
 
 
