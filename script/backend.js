@@ -36,19 +36,17 @@ function notifyDevices(room) {
 function getResults(room) {
 	var results = new Firebase(url+"Rooms/"+room);
 	var valuePairs = [];
-	results.once("value", function(snapshot){ // Array of objects of IP/Keys to a specified room
-		console.log(snapshot.val());
-		$.each(snapshot.val(), function(index, value){ // Array of all {confidence, transcript} pair 
-
+	results.on("value", function(snapshot){ // Array of objects of IP/Keys to a specified room
+		//console.log(snapshot.val());
+		$.each(snapshot.val(), function(index, device){ // Array of all {confidence, transcript} pair 
+			valuePairs.push(8);
 			if (index != "LISTENING") {
 				var resultArray = [];
 				console.log("key: "+index);
 				//valuePairs.push({key:index});
-				$.each(value, function(index, value){
-					console.log(value['confidence'] +": " + value['transcript']);
-					resultArray.push({results: 
-						{transcript: value['transcript'], confidence: value['confidence']}
-					});
+				$.each(device, function(forget, result){
+					console.log(result)
+					resultArray.push(result);
 				});
 				var device = {
 					key: index,
@@ -58,6 +56,7 @@ function getResults(room) {
 			}
 		});
 	});
+	console.log(valuePairs)
 	return valuePairs;
 }
 

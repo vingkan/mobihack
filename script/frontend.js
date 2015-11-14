@@ -12,14 +12,15 @@ function initListening(listenBoolean)
 	console.log(ROOM_KEY +": " + listenBoolean);
 	startListening();
 }
-
+var reference;
 function printResults(device)
 {
-	var reference = document.getElementById("tabled-results");
-	reference.innerHTML = "";
+	reference = document.getElementById('text-here');
+	//reference.innerHTML = "";
+	console.log(device);
 	$.each(device, function(key, value){
 		console.log(key +": "+ value);
-		reference.innerHTML += key;
+		reference.innerHTML += "<p>"+key+"</p>";
 	});
 	/**
 	var html = '';
@@ -28,5 +29,7 @@ function printResults(device)
 	**/ // Same thing from Troops.js from conquiz??
 	// somehow call resultToHTML
 }
+
+init();
 
 console.log('LOADED FRONTEND');
