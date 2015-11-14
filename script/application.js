@@ -5,6 +5,8 @@
 var ROOM_KEY;
 var DEVICE_KEY;
 
+var currentResult = null;
+
 /*--------------------------------------------*/
 /*---> STEP ONE <-----------------------------*/
 /*--------------------------------------------*/
@@ -13,7 +15,14 @@ function joinRoom(roomKey){
 	DEVICE_KEY = addDevice(roomKey);
 }
 
-var currentResult = null;
+/*--------------------------------------------*/
+/*---> STEP TWO <-----------------------------*/
+/*--------------------------------------------*/
+
+function startListening(){
+	
+}
+
 
 function getResultTranscript(){
 	return currentResult.results[0][0]['transcript'];
