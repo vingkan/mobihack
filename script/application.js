@@ -109,19 +109,19 @@ console.log('LOADED APPLICATION');
 /*---> SUBSTITUTES <--------------------------*/
 /*--------------------------------------------*/
 
-function addDevice(roomKey){
-	return 'device-key1';
-}
+// function addDevice(roomKey){
+// 	return 'device-key1';
+// }
 
-function pushResult(resultData){
-	console.log("Sent to Database:");
-	console.log(resultData);
-}
+// function pushResult(resultData){
+// 	console.log("Sent to Database:");
+// 	console.log(resultData);
+// }
 
-function printResults(device){
-	console.log("Printed Results:");
-	console.log(device);
-}
+// function printResults(device){
+// 	console.log("Printed Results:");
+// 	console.log(device);
+// }
 
 
 /*

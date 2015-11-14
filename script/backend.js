@@ -19,6 +19,7 @@ function pushResult(room, userIp, parseData) {
 
 function setListening(room, bool) {
 	var newListener = new Firebase(url+"Rooms/"+room+"/LISTENING");
+	console.log("set listening to: "+bool);
 	newListener.set(bool);
 }
 
@@ -36,7 +37,7 @@ function getResults(room) {
 	var results = new Firebase(url+"Rooms/"+room);
 	var valuePairs = [];
 	results.once("value", function(snapshot){ // Array of objects of IP/Keys to a specified room
-		//console.log(snapshot.val());
+		console.log(snapshot.val());
 		$.each(snapshot.val(), function(index, value){ // Array of all {confidence, transcript} pair 
 
 			if (index != "LISTENING") {

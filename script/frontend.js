@@ -4,10 +4,13 @@ function setRoomKey()
 	joinRoom(ROOM_KEY); // how do we know this even exists
 }
 
-function startListening(listenBoolean)
+function initListening(listenBoolean)
 {
 	console.log(listenBoolean);
-	//setListening(ROOM_KEY, listenBoolean);
+
+	setListening(ROOM_KEY, listenBoolean);
+	console.log(ROOM_KEY +": " + listenBoolean);
+	startListening();
 }
 
 function printResults(device)
