@@ -12,24 +12,21 @@ function initListening(listenBoolean)
 	console.log(ROOM_KEY +": " + listenBoolean);
 	startListening();
 }
+
 var reference;
 function printResults(device)
 {
-	reference = document.getElementById('text-here');
-	//reference.innerHTML = "";
+	console.log("PRINT RESULTS:");
 	console.log(device);
-	$.each(device, function(key, value){
-		console.log(key +": "+ value);
-		reference.innerHTML += "<p>"+key+"</p>";
-	});
-	/**
-	var html = '';
-	html += '<div id="' + this.id + '" class="tower preset" onclick="setFocusObject(\'towers\', \'' + this.id + '\');">' + this.size + '</div>';
-	return html;
-	**/ // Same thing from Troops.js from conquiz??
-	// somehow call resultToHTML
+	document.write("<h2>" + device.key + "</h2>")
+	document.write("<ul>")
+	var size = device.results.length;
+	for(var r = 0; r < size; r++){
+		document.write(resultToHTML(device.results[r]))
+	}
+	document.write("</ul>")
 }
 
-init();
+//init();
 
 console.log('LOADED FRONTEND');

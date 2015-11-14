@@ -33,37 +33,36 @@ function notifyDevices(room) {
 	});
 }
 
-function getResults(room) {
-	var results = new Firebase(url+"Rooms/"+room);
-	var valuePairs = [];
-	results.on("value", function(snapshot){ // Array of objects of IP/Keys to a specified room
-		//console.log(snapshot.val());
-		$.each(snapshot.val(), function(index, device){ // Array of all {confidence, transcript} pair 
-			valuePairs.push(8);
-			if (index != "LISTENING") {
-				var resultArray = [];
-				console.log("key: "+index);
-				//valuePairs.push({key:index});
-				$.each(device, function(forget, result){
-					console.log(result)
-					resultArray.push(result);
+var getResultsOutput = [];
+
+function getResults(room, callback) {
+	var ref = new Firebase("https://claritk.firebaseio.com/Rooms/" + room);
+	var roomData = null;
+	ref.on('value', function(snapshot){
+		roomData = snapshot.val();
+		console.log(roomData);
+		$.each(roomData, function(key, value){
+			if(key != "LISTENING"){
+				var deviceResults = [];
+				$.each(value, function(forget, result){
+					deviceResults.push(result);
 				});
-				var device = {
-					key: index,
-					results: resultArray
+				console.log(deviceResults)
+				var deviceObject = {
+					key: key,
+					results: deviceResults
 				}
-				valuePairs.push(device);
+				getResultsOutput.push(deviceObject);
 			}
 		});
+		callback();
 	});
-	console.log(valuePairs)
-	return valuePairs;
 }
 
-function init(){
-	ROOM_KEY = 'roomkey';
-	DEVICE_KEY = '192-1-1-1';
-}
+/*function init(){
+	ROOM_KEY = 'mobihack';
+	DEVICE_KEY = '104-194-113-25';
+}*/
 
 
 console.log('LOADED BACKEND');
