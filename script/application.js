@@ -123,6 +123,8 @@ function printResults(device){
 	console.log(device);
 }
 
+
+/*
 function getResults(roomKey){
 	return [
 		{
@@ -189,6 +191,6 @@ function getResults(roomKey){
 			]
 		}
 	];
-}
+}*/
 
 console.log('LOADED SUBSTITUTES');

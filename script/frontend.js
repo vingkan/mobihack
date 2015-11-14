@@ -12,7 +12,12 @@ function startListening(listenBoolean)
 
 function printResults(device)
 {
-
+	var reference = document.getElementById("tabled-results");
+	reference.innerHTML = "";
+	$.each(device, function(key, value){
+		console.log(key +": "+ value);
+		reference.innerHTML += key;
+	});
 	/**
 	var html = '';
 	html += '<div id="' + this.id + '" class="tower preset" onclick="setFocusObject(\'towers\', \'' + this.id + '\');">' + this.size + '</div>';
