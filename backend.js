@@ -3,23 +3,27 @@ var firebase = new Firebase("https://claritk.firebaseio.com/");
 var firebaseRooms = new Firebase("https://claritk.firebaseio.com/Rooms");
 var listening;
 
+// This function may not need to be used
 function addDevice(room, userIp) {
-	var newDevice = firebaseRooms.child(room+"/"+userIp);
+	var newDevice = new Firebase(url+"Rooms/"+room+"/"+userIp);
 	newDevice.push(0);
 }
 
 function pushResult(room, userIp, parseData) {
+	console.log(room + "/" + userIp)
 	var pushData = new Firebase(url+"Rooms/"+room+"/"+userIp);
-	pushData.push(parseData);
+	pushData.push({confidence: parseData['confidence'],
+					transcript: parseData['transcript']});
+
 }
 
 function setListening(room, bool) {
-	var newListener = firebaseRooms.child(room+"/LISTENING");
+	var newListener = new Firebase(url+"Rooms/"+room+"/LISTENING");
 	newListener.set(bool);
 }
 
 function notifyDevices(room) {
-	var listenDir = new Firebase("https://claritk.firebaseio.com/Rooms/"+room+"/LISTENING");
+	var listenDir = new Firebase(url+"Rooms/"+room+"/LISTENING");
 	listenDir.on('value', function(snapshot){
 		alert(snapshot.val());
 		if (snapshot.val()) {
@@ -28,16 +32,16 @@ function notifyDevices(room) {
 	});
 }
 
+function getResults(room) {
+	var results = new Firebase(url+"Rooms/"+room);
+}
 
-// function notifyDevices(room) {
-// 	var listenDir = firebaseRooms.child(room+"/LISTENING");
-// 	console.log("Getting child changed status");
-// 	listenDir.on("child_changed", function(snapshot){
-// 		console.log("entered child changed");
-// 		var changedPost = snapshot.val();
-// 		console.log("Listening updated: "+ changedPost);
-// 	});
-// }
+function init(){
+	ROOM_KEY = 'roomkey';
+	DEVICE_KEY = '127-0-0-1';
+}
+
+
 
 
 
