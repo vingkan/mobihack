@@ -1,5 +1,6 @@
+var url = "https://claritk.firebaseio.com/";
 var firebase = new Firebase("https://claritk.firebaseio.com/");
-var firebaseRooms = firebase.child("Rooms");
+var firebaseRooms = new Firebase("https://claritk.firebaseio.com/Rooms");
 var listening;
 
 function addDevice(room, userIp) {
@@ -7,17 +8,26 @@ function addDevice(room, userIp) {
 	newDevice.push(0);
 }
 
+function pushResult(room, userIp, parseData) {
+	var pushData = new Firebase(url+"Rooms/"+room+"/"+userIp);
+	pushData.push(parseData);
+}
 
 function setListening(room, bool) {
 	var newListener = firebaseRooms.child(room+"/LISTENING");
 	newListener.set(bool);
 }
 
-firebaseRooms.child("roomkey/LISTENING").on("value", notify);
-
-function notify(snapshot) {
-	console.log(snapshot.key());
+function notifyDevices(room) {
+	var listenDir = new Firebase("https://claritk.firebaseio.com/Rooms/"+room+"/LISTENING");
+	listenDir.on('value', function(snapshot){
+		alert(snapshot.val());
+		if (snapshot.val()) {
+			startListening();
+		}
+	});
 }
+
 
 // function notifyDevices(room) {
 // 	var listenDir = firebaseRooms.child(room+"/LISTENING");

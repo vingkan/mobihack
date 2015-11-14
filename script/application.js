@@ -75,7 +75,7 @@ function record(){
 function parseResult(){
 	parsedData.transcript = getResultTranscript();
 	parsedData.confidence = getResultConfidence();
-	pushResult(parsedData);
+	pushResult(ROOM_KEY, DEVICE_KEY, parsedData);
 	record();
 }
 
