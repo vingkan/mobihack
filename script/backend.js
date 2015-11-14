@@ -33,31 +33,30 @@ function notifyDevices(room) {
 	});
 }
 
-function getResults(room) {
-	var results = new Firebase(url+"Rooms/"+room);
-	var valuePairs = [];
-	results.on("value", function(snapshot){ // Array of objects of IP/Keys to a specified room
-		//console.log(snapshot.val());
-		$.each(snapshot.val(), function(index, device){ // Array of all {confidence, transcript} pair 
-			valuePairs.push(8);
-			if (index != "LISTENING") {
-				var resultArray = [];
-				console.log("key: "+index);
-				//valuePairs.push({key:index});
-				$.each(device, function(forget, result){
-					console.log(result)
-					resultArray.push(result);
-				});
-				var device = {
-					key: index,
-					results: resultArray
-				}
-				valuePairs.push(device);
+var allResults;
+function getResults(room, callback) {
+	var ref = new Firebase("https://claritk.firebaseio.com/Rooms/" + room);
+	allResults = [];
+	ref.on("value", function(snapshot){
+		var data = snapshot.val();
+		console.log(data)
+		$.each(data, function(ip, device){
+			var resultArray = [];
+			$.each(device, function(key, result){
+				resultArray.push(result);
+			});
+			var deviceObject = {
+				key: ip,
+				results: resultArray
 			}
+			allResults.push(deviceObject);
 		});
+		if(callback){
+			console.log(allResults)
+			callback(allResults);
+		}
 	});
-	console.log(valuePairs)
-	return valuePairs;
+
 }
 
 function init(){
