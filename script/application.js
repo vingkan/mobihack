@@ -71,6 +71,10 @@ function resultToHTML(parsedResult){
 	return '<li>(' + parsedResult.confidence + '): ' + parsedResult.transcript + '</li>';
 }
 
+function endSession(){
+	devices = getResults(ROOM_KEY);
+}
+
 console.log('LOADED APPLICATION');
 
 /*--------------------------------------------*/
@@ -84,6 +88,74 @@ function addDevice(roomKey){
 function pushResult(resultData){
 	console.log("Sent to Database:");
 	console.log(resultData);
+}
+
+function getResults(roomKey){
+	return [
+		{
+			key: 'device-key1',
+			results: [
+				{
+					transcript: 'hello',
+					confidence: 0.5
+				}, 
+				{
+					transcript: 'world',
+					confidence: 0.5
+				}, 
+				{
+					transcript: 'dank',
+					confidence: 0.5
+				}, 
+				{
+					transcript: 'memes',
+					confidence: 0.5
+				}
+			]
+		}, 
+		{
+			key: 'device-key1',
+			results: [
+				{
+					transcript: 'hello',
+					confidence: 0.5
+				}, 
+				{
+					transcript: 'world',
+					confidence: 0.5
+				}, 
+				{
+					transcript: 'dank',
+					confidence: 0.5
+				}, 
+				{
+					transcript: 'memes',
+					confidence: 0.5
+				}
+			]
+		}, 
+		{
+			key: 'device-key1',
+			results: [
+				{
+					transcript: 'hello',
+					confidence: 0.5
+				}, 
+				{
+					transcript: 'world',
+					confidence: 0.5
+				}, 
+				{
+					transcript: 'dank',
+					confidence: 0.5
+				}, 
+				{
+					transcript: 'memes',
+					confidence: 0.5
+				}
+			]
+		}
+	];
 }
 
 console.log('LOADED SUBSTITUTES');
