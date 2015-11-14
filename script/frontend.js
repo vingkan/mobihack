@@ -1,12 +1,13 @@
-console.log('LOADED FRONTEND');
-// global variable room key
-
-var ROOM_KEY;
-
 function setRoomKey()
 {
-	ROOM_KEY = document.getElementById("ROOM_KEY").value;
+	ROOM_KEY = document.getElementById("roomKeyInput").value;
 	joinRoom(ROOM_KEY); // how do we know this even exists
+}
+
+function startListening(listenBoolean)
+{
+	console.log(listenBoolean);
+	//setListening(ROOM_KEY, listenBoolean);
 }
 
 function printResults(device)
@@ -19,3 +20,5 @@ function printResults(device)
 	**/ // Same thing from Troops.js from conquiz??
 	// somehow call resultToHTML
 }
+
+console.log('LOADED FRONTEND');
