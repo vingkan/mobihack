@@ -41,7 +41,7 @@ function getDeviceIP() {
 
 function joinRoom(roomKey){
 	var userIP = getDeviceIP().replace(/\./g,'-');
-	DEVICE_KEY = addDevice(roomKey, userIP);
+	DEVICE_KEY = userIP; //addDevice(roomKey, userIP);
 }
 
 /*--------------------------------------------*/
