@@ -34,11 +34,32 @@ function notifyDevices(room) {
 
 function getResults(room) {
 	var results = new Firebase(url+"Rooms/"+room);
+	var ipKeys = [];
+	var valuePairs = [];
+	results.once("value", function(snapshot){ // Array of objects of IP/Keys to a specified room
+		//console.log(snapshot.val());
+		$.each(snapshot.val(), function(index, value){ // Array of all {confidence, transcript} pair 
+			if (index != "LISTENING") {
+				console.log(index);
+				console.log(value);
+				$.each(value, function(index, value){
+					console.log(value['confidence'] +": " + value['transcript']);
+				});
+				// valuePairs.push({
+				// 	transcript: value['confidence'],
+				// 	confidence: value['transcript']
+				// });
+
+			}
+			//ipKeys.push(valuePairs);
+		});
+	});
+	//return ipKeys;
 }
 
 function init(){
 	ROOM_KEY = 'roomkey';
-	DEVICE_KEY = '127-0-0-1';
+	DEVICE_KEY = '192.1.1.1';
 }
 
 
