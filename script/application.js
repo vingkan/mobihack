@@ -14,8 +14,10 @@ var parsedData = {
 };
 
 var recognition = new webkitSpeechRecognition();
+	recognition.continuous = true;
 
 recognition.onresult = function(event){
+	//recognition.stop();
 	currentResult = event;
 	console.log("Returned Result:");
 	console.log(currentResult);
@@ -52,7 +54,7 @@ function parseResult(){
 	parsedData.transcript = getResultTranscript();
 	parsedData.confidence = getResultConfidence();
 	pushResult(parsedData);
-	record();
+	//record();
 }
 
 function getResultTranscript(){
