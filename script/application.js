@@ -73,6 +73,10 @@ function resultToHTML(parsedResult){
 
 function endSession(){
 	devices = getResults(ROOM_KEY);
+	var size = devices.length;
+	for(var d = 0; d < size; d++){
+		
+	}
 }
 
 console.log('LOADED APPLICATION');
