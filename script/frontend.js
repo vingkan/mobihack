@@ -16,15 +16,17 @@ function initListening(listenBoolean)
 var reference;
 function printResults(device)
 {
+	var output = document.getElementById('output');
+	output.innerHTML = "";
 	console.log("PRINT RESULTS:");
 	console.log(device);
-	document.write("<h2>" + device.key + "</h2>")
-	document.write("<ul>")
+	output.innerHTML += "<h2>" + device.key + "</h2>"
+	output.innerHTML += "<ul>";
 	var size = device.results.length;
 	for(var r = 0; r < size; r++){
-		document.write(resultToHTML(device.results[r]))
+		output.innerHTML += resultToHTML(device.results[r])
 	}
-	document.write("</ul>")
+	output.innerHTML += "</ul>";
 }
 
 //init();
