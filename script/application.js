@@ -70,7 +70,7 @@ function record(){
 		console.log(getResultConfidence());
 		parseResult();
 		var output = document.getElementById('interim-transcript');
-		output.value = getResultTranscript();
+		output.innerHTML = getResultTranscript();
 	}
 
 	recognition.start();
