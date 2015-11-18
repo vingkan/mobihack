@@ -5,7 +5,7 @@ function globalStart(){
 
 function globalStop(){
 	initListening(false);
-	printResults();
+	endSession();
 }
 
 function setRoomKey(){
@@ -15,7 +15,6 @@ function setRoomKey(){
 
 function initListening(listenBoolean){
 	console.log(listenBoolean);
-
 	setListening(ROOM_KEY, listenBoolean);
 	console.log(ROOM_KEY +": " + listenBoolean);
 	startListening();
