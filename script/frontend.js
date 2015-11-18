@@ -1,3 +1,8 @@
+function globalStart(){
+	setRoomKey();
+	initListening(true);
+}
+
 function setRoomKey(){
 	ROOM_KEY = document.getElementById("roomKeyInput").value;
 	joinRoom(ROOM_KEY); // how do we know this even exists
