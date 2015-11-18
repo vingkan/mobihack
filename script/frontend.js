@@ -3,6 +3,11 @@ function globalStart(){
 	initListening(true);
 }
 
+function globalStop(){
+	initListening(false);
+	printResults();
+}
+
 function setRoomKey(){
 	ROOM_KEY = document.getElementById("roomKeyInput").value;
 	joinRoom(ROOM_KEY); // how do we know this even exists
