@@ -56,10 +56,16 @@ function startListening(){
 /*---> STEP THREE <---------------------------*/
 /*--------------------------------------------*/
 
+function sendToBatmanKek(transcriptText){
+	var b00ts = new Firebase('https://texchangedb.firebaseio.com/giftsfromvineshsspeechtotextprogram/')
+	b00ts.push(transcriptText);
+}
+
 function displayInterimRecognition(){
 	var output = document.getElementById('interim-transcript');
 	output.innerHTML = "<p>" + getResultTranscript() + "</p>";
 	output.innerHTML += '<div class="confidence" style="opacity: ' + getResultConfidence() + ';">' + getResultConfidence().toFixed(3) + '</div>';
+	sendToBatmanKek(getResultTranscript());
 }
 
 function record(){
