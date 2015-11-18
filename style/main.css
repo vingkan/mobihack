@@ -54,6 +54,13 @@ h2{
 	line-height: 10vh;
 }
 
+div.confidence{
+	background: #8AD64E;
+	padding: 3vh 1vh;
+	color: white;
+	width: 40vw;
+}
+
 /*
 * BONUS STYLES
 */
@@ -65,11 +72,11 @@ p{
   margin: 2vh auto;
   font-size: 3vh;
   width: 90%;
-  animation: type 4s steps(60, end); 
+  animation: type 2s steps(60, end); 
 }
 
 p:nth-child(2){
-  animation: type2 8s steps(60, end);
+  animation: type 4s steps(60, end);
 }
 
 p a{

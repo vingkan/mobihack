@@ -56,6 +56,12 @@ function startListening(){
 /*---> STEP THREE <---------------------------*/
 /*--------------------------------------------*/
 
+function displayInterimRecognition(){
+	var output = document.getElementById('interim-transcript');
+	output.innerHTML = "<p>" + getResultTranscript() + "</p>";
+	output.innerHTML += '<div class="confidence" style="opacity: ' + getResultConfidence() + ';">' + getResultConfidence().toFixed(3) + '</div>';
+}
+
 function record(){
 	var recognition = new webkitSpeechRecognition();
 		recognition.continuous = true;
@@ -69,8 +75,7 @@ function record(){
 		console.log(getResultTranscript());
 		console.log(getResultConfidence());
 		parseResult();
-		var output = document.getElementById('interim-transcript');
-		output.innerHTML = getResultTranscript();
+		displayInterimRecognition();
 	}
 
 	recognition.start();
