@@ -59,6 +59,8 @@ function startListening(){
 function record(){
 	var recognition = new webkitSpeechRecognition();
 		recognition.continuous = true;
+		recognition.interimResults = true;
+		recognition.lang = 'en';
 
 	recognition.onresult = function(event){
 		currentResult = event;
@@ -67,6 +69,8 @@ function record(){
 		console.log(getResultTranscript());
 		console.log(getResultConfidence());
 		parseResult();
+		var output = document.getElementById('interim-transcript');
+		output.value = getResultTranscript();
 	}
 
 	recognition.start();
