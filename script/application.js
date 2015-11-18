@@ -59,7 +59,7 @@ function startListening(){
 function record(){
 	var recognition = new webkitSpeechRecognition();
 		recognition.continuous = true;
-		recognition.interimResults = true;
+		//recognition.interimResults = true;
 		recognition.lang = 'en';
 
 	recognition.onresult = function(event){
