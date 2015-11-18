@@ -1,11 +1,9 @@
-function setRoomKey()
-{
+function setRoomKey(){
 	ROOM_KEY = document.getElementById("roomKeyInput").value;
 	joinRoom(ROOM_KEY); // how do we know this even exists
 }
 
-function initListening(listenBoolean)
-{
+function initListening(listenBoolean){
 	console.log(listenBoolean);
 
 	setListening(ROOM_KEY, listenBoolean);
@@ -14,8 +12,8 @@ function initListening(listenBoolean)
 }
 
 var reference;
-function printResults(device)
-{
+
+function printResults(device){
 	var output = document.getElementById('output');
 	output.innerHTML = "";
 	console.log("PRINT RESULTS:");
